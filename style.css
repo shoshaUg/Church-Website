@@ -265,7 +265,7 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 780px) {
   nav {
     flex-direction: column;
     padding: 1rem;
