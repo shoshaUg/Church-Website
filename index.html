@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abeka SDA Church - Welcome</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Announcement Marquee -->
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left">
+      🎉 Join us for Sabbath Service at 10 AM | 🙏 Prayer Meetings every Wednesday | 🌟 Vacation Bible School coming soon!
+    </marquee>
+  </div>
+
+  <!-- Navbar with Icons -->
+  <nav>
+    <div class="logo">
+        
+      <i class="fas fa-church"></i>
+      <span>Abeka SDA Church</span>
+    </div>
+    <ul>
+      <li>
+        <a href="index.html" class="active">
+          <i class="fas fa-home"></i>
+          <span class="nav-text">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="bible.html">
+          <i class="fas fa-bible"></i>
+          <span class="nav-text">Bible</span>
+        </a>
+      </li>
+      <li>
+        <a href="events.html">
+          <i class="fas fa-calendar-alt"></i>
+          <span class="nav-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <i class="fas fa-info-circle"></i>
+          <span class="nav-text">About</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fas fa-envelope"></i>
+          <span class="nav-text">Contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Date/Time -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Abeka SDA Church</h1>
+      <p>Where faith, hope, and love come together</p>
+      <div class="datetime">
+        <div id="current-date"><i class="far fa-calendar-alt"></i> Loading date...</div>
+        <div id="current-time"><i class="far fa-clock"></i> Loading time...</div>
+      </div>
+      <a href="events.html" class="btn">Upcoming Events</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature-card">
+      <i class="fas fa-bible"></i>
+      <h3>Daily Verse</h3>
+      <p id="daily-verse">"For God so loved the world..." - John 3:16</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-calendar-alt"></i>
+      <h3>This Week</h3>
+      <p>Sunday: Worship @ 10AM<br>Wednesday: Bible Study @ 7PM</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-hands-praying"></i>
+      <h3>Prayer Request</h3>
+      <p>Share your prayer needs with us</p>
+      <a href="contact.html" class="btn-small">Submit</a>
+    </div>
+  </section>
+
+  <!-- Footer with Contact & Links -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+        <p>Abeka-Lapaz<br>Adjacent Rene School</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-clock"></i> Service Times</h3>
+        <p>Sabbath: 10AM Worship<br>Wednesday: 7PM Bible Study</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-share-alt"></i> Quick Links</h3>
+        <ul>
+          <li><a href="bible.html"><i class="fas fa-arrow-right"></i> Bible Resources</a></li>
+          <li><a href="events.html"><i class="fas fa-arrow-right"></i> Event Calendar</a></li>
+          <li><a href="contact.html"><i class="fas fa-arrow-right"></i> Prayer Request</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Abeka SDA Church. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

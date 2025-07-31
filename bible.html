@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bible Explorer - Abeka SDA Church</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="marquee">
+    <marquee behavior="scroll" direction="left">
+      🎉 Join us for Sabbath Service at 10 AM | 🙏 Prayer Meetings every Wednesday | 🌟 Vacation Bible School coming soon!
+    </marquee>
+  </div>
+  <!-- Navbar (Same as index.html) -->
+  <nav>
+    <div class="logo">
+      <i class="fas fa-church"></i>
+      <span>Abeka SDA Church</span>
+    </div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+      <li><a href="bible.html" class="active"><i class="fas fa-bible"></i><span class="nav-text">Bible</span></a></li>
+      <li><a href="events.html"><i class="fas fa-calendar-alt"></i><span class="nav-text">Events</span></a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i><span class="nav-text">About</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span class="nav-text">Contact</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="bible-container">
+    <!-- Motivational Quote Rotator -->
+    <section class="quote-box">
+      <div class="quote-icon">
+        <i class="fas fa-quote-left"></i>
+      </div>
+      <p id="motivational-quote">"Faith is taking the first step even when you don't see the whole staircase."</p>
+      <p id="quote-author" class="quote-author">— Martin Luther King Jr.</p>
+    </section>
+
+    <!-- Bible Search Section -->
+    <section class="bible-search">
+      <h2><i class="fas fa-search"></i> Bible Verse Search</h2>
+      <div class="search-box">
+        <input type="text" id="verse-search" placeholder="e.g., John 3:16">
+        <button onclick="fetchVerse()" class="btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+      <div id="verse-result" class="verse-result"></div>
+    </section>
+
+    <!-- Popular Verses Grid -->
+    <section class="popular-verses">
+      <h2><i class="fas fa-star"></i> Popular Verses</h2>
+      <div class="verse-grid">
+        <div class="verse-card" onclick="fetchVerse('Psalm 23:1')">
+          <h3>Psalm 23:1</h3>
+          <p>"The Lord is my shepherd..."</p>
+        </div>
+        <div class="verse-card" onclick="fetchVerse('Philippians 4:13')">
+          <h3>Philippians 4:13</h3>
+          <p>"I can do all things..."</p>
+        </div>
+        <div class="verse-card" onclick="fetchVerse('Jeremiah 29:11')">
+          <h3>Jeremiah 29:11</h3>
+          <p>"For I know the plans..."</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Same as index.html) -->
+  <footer>
+     <div class="footer-content">
+      <div class="footer-section">
+        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+        <p>Abeka-Lapaz<br>Adjacent Rene School</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-clock"></i> Service Times</h3>
+        <p>Sabbath: 10AM Worship<br>Wednesday: 7PM Bible Study</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-share-alt"></i> Quick Links</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-arrow-right"></i> Homepage</a></li>
+          <li><a href="events.html"><i class="fas fa-arrow-right"></i> Event Calendar</a></li>
+          <li><a href="contact.html"><i class="fas fa-arrow-right"></i> Prayer Request</a></li>
+        </ul>
+      </div>
+     </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Abeka SDA Church. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
