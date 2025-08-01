@@ -92,7 +92,7 @@ nav ul li a.active i {
 /* Hero Section */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+              url('church.jpg') no-repeat center center/cover;
   height: 70vh;
   display: flex;
   align-items: center;
@@ -184,6 +184,31 @@ nav ul li a.active i {
   transition: transform 0.3s;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
 .feature-card:hover {
   transform: translateY(-10px);
 }
@@ -270,7 +295,51 @@ footer {
     flex-direction: column;
     padding: 1rem;
   }
+   .youth-hero {
+    height: 50vh;
+    padding: 0 2rem;
+  }
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 1rem;
+  }
   
+.platform-section {
+  margin: 4rem 0;
+}
+
+
+.platform-section h2 {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3A5A78;
+}
+
+/* Embedded Content Containers */
+.embed-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* TikTok Embed Styling */
+.tiktok-embed-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+}
+
+/* Instagram Grid */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+
   nav ul {
     margin-top: 1rem;
     gap: 1rem;
@@ -447,39 +516,6 @@ footer {
 }
 
 /* Platform Sections */
-.platform-section {
-  margin: 4rem 0;
-}
-
-.platform-section h2 {
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #3A5A78;
-}
-
-/* Embedded Content Containers */
-.embed-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-/* TikTok Embed Styling */
-.tiktok-embed-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-/* Instagram Grid */
-.insta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
 
 .insta-item {
   position: relative;
@@ -515,3 +551,208 @@ footer {
   opacity: 1;
 }
 
+/* About Page Specific Styles */
+.about-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://source.unsplash.com/random/1920x1080/?church') center/cover;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.about-content .container {
+  display: flex;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.content-left {
+  flex: 1;
+}
+
+.content-right {
+  flex: 1;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.mission-list {
+  margin: 1.5rem 0;
+  list-style: none;
+}
+
+.mission-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mission-list i {
+  color: #3A5A78;
+}
+
+/* Beliefs Section */
+.beliefs {
+  background: #f8f9fa;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.beliefs-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.belief-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.belief-icon {
+  font-size: 2rem;
+  color: #D4A76A;
+  margin-bottom: 1rem;
+}
+
+/* Leadership */
+.leadership {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  width: 280px;
+}
+
+.team-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #f8f9fa;
+}
+
+.team-card h3 {
+  margin: 1rem 0 0.5rem;
+  color: #3A5A78;
+}
+
+.role {
+  font-weight: bold;
+  color: #D4A76A;
+}
+
+.bio {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Timeline */
+.history {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #D4A76A;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  margin-left: 0;
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: 50%;
+  padding-left: 3rem;
+}
+
+.year {
+  font-weight: bold;
+  color: #3A5A78;
+  margin-bottom: 0.5rem;
+}
+
+.event {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 40px;
+    padding-right: 0;
+    text-align: left;
+  }
+}
+
+/* Youth Page Specific Styles */
+.youth-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('https://source.unsplash.com/random/1920x1080/?teenagers,christian') center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  
