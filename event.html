@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Church Moments - Abeka SDA Church</title>
+  <title>Church Events - Abeka SDA Church</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Lightbox CSS -->
@@ -16,7 +16,6 @@
       🎉 Join us for Sabbath Service at 10 AM | 🙏 Prayer Meetings every Wednesday | 🌟 Annual Camp Meeting coming soon!
     </marquee>
   </div>
-  <!-- Navbar (Same as other pages) -->
   <nav>
     <div class="logo">
       <i class="fas fa-church"></i>
@@ -30,20 +29,28 @@
         </a>
       </li>
       <li>
-        <a href="bible.html">
+        <a href="bible.html" >
           <i class="fas fa-bible"></i>
           <span class="nav-text">Bible</span>
         </a>
       </li>
       <li>
+        <div class="dropdown">
         <a href="ay.html">
-          <i class="fas fa-calendar-alt"></i>
+          <i class="fas fa-users"></i>
           <span class="nav-text">Youth Ministry</span>
         </a>
+        <div class="dropdown-content">
+          <a href="adventurers.html">Adventurers</a>
+          <a href="pathfinders.html">Pathfinders</a>
+          <a href="senior.html">Senior Youth</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+        </div>
       </li>
       <li>
-        <a href="event.html" >
-          <i class="fas fa-phone"></i>
+        <a href="event.html" class="active">
+          <i class="fas fa-calendar"></i>
           <span class="nav-text">Event</span>
         </a>
       </li>
