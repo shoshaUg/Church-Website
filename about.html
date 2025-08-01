@@ -3,34 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Grace Church</title>
+  <title>About Us - Abeka SDA Church</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Animate.css for animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-   <!-- Announcement Marquee -->
+    <!-- Announcement Marquee -->
   <div class="marquee">
     <marquee behavior="scroll" direction="left">
       🎉 Join us for Sabbath Service at 10 AM | 🙏 Prayer Meetings every Wednesday | 🌟 Annual Camp Meeting coming soon!
     </marquee>
   </div>
-
-  <!-- Navbar with Icons -->
+  
   <nav>
-    <div class="logo">
-        
+      <div class="logo">
       <i class="fas fa-church"></i>
       <span>Abeka SDA Church</span>
     </div>
-  <!-- Navbar (Same as other pages) -->
-  <nav>
         <ul>
       <li>
-        <a href="index.html" >
+        <a href="index.html">
           <i class="fas fa-home"></i>
           <span class="nav-text">Home</span>
         </a>
@@ -42,14 +34,22 @@
         </a>
       </li>
       <li>
+        <div class="dropdown">
         <a href="ay.html">
-          <i class="fas fa-calendar-alt"></i>
+          <i class="fas fa-users"></i>
           <span class="nav-text">Youth Ministry</span>
         </a>
+        <div class="dropdown-content">
+          <a href="adventurers.html">Adventurers</a>
+          <a href="pathfinders.html">Pathfinders</a>
+          <a href="senior.html">Senior Youth</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+        </div>
       </li>
       <li>
-        <a href="event.html">
-          <i class="fas fa-phone"></i>
+        <a href="event.html" >
+          <i class="fas fa-calendar"></i>
           <span class="nav-text">Event</span>
         </a>
       </li>
@@ -62,114 +62,119 @@
     </ul>
   </nav>
 
-  <!-- About Us Hero -->
+  <!-- Static Hero Section -->
   <section class="about-hero">
-    <div class="hero-content" data-aos="fade-up">
+    <div class="hero-content">
       <h1>Our Story & Mission</h1>
-      <p>Building a community rooted in faith, love, and service since <span id="church-age">2005</span></p>
-    </div>
-    <div class="hero-scroll">
-      <i class="fas fa-chevron-down animate__animated animate__bounce animate__infinite"></i>
+      <p>Building a community rooted in faith, love, and service since <span id="church-age">1978</span></p>
     </div>
   </section>
 
-  <!-- Dynamic Content Section (Pulls from external source) -->
-  <section class="dynamic-content">
+  <!-- Content Section -->
+  <section class="about-content">
     <div class="container">
-      <div class="content-left" data-aos="fade-right">
+      <div class="content-left">
         <h2>Who We Are</h2>
-        <div id="about-content">
-          <!-- Content will be loaded dynamically from JS -->
-          <p class="loading-text"><i class="fas fa-spinner fa-spin"></i> Loading our story...</p>
+        <div id="about-text">
+          <p>Abeka SDA Church was founded in 2005 with a vision to create a welcoming spiritual home. Today we serve over 1,200 members through worship, community outreach, and discipleship programs.</p>
+          
+          <h3>Our Mission</h3>
+          <ul class="mission-list">
+            <li><i class="fas fa-cross"></i> To preach the Gospel of Jesus Christ</li>
+            <li><i class="fas fa-hands-praying"></i> To nurture spiritual growth</li>
+            <li><i class="fas fa-heart"></i> To serve our local community</li>
+          </ul>
         </div>
       </div>
-      <div class="content-right" data-aos="fade-left">
-        <div class="image-gallery">
-          <img src="https://source.unsplash.com/random/600x400/?church,community" alt="Church community" class="gallery-main animate__animated animate__pulse animate__slow animate__infinite">
-          <div class="gallery-thumbnails">
-            <img src="https://source.unsplash.com/random/300x200/?worship" alt="Worship" loading="lazy">
-            <img src="https://source.unsplash.com/random/300x200/?bible" alt="Bible study" loading="lazy">
-            <img src="https://source.unsplash.com/random/300x200/?charity" alt="Charity work" loading="lazy">
-          </div>
-        </div>
+      <div class="content-right">
+        <img src="abeka.jpg" alt="Our Church" class="about-image">
       </div>
     </div>
   </section>
 
-  <!-- Core Beliefs (Animated Cards) -->
+  <!-- Core Beliefs -->
   <section class="beliefs">
-    <h2 data-aos="fade-up">Our Core Beliefs</h2>
+    <h2>Our Core Beliefs</h2>
     <div class="beliefs-grid">
-      <div class="belief-card" data-aos="flip-left">
+      <div class="belief-card">
+        <div class="belief-icon">
+          <i class="fas fa-bible"></i>
+        </div>
+        <h3>Biblical Authority</h3>
+        <p>We believe the Bible is the inspired Word of God and our final authority.</p>
+      </div>
+      <div class="belief-card">
         <div class="belief-icon">
           <i class="fas fa-cross"></i>
         </div>
-        <h3>Faith in Christ</h3>
-        <p>We believe Jesus is the Son of God and the only path to salvation.</p>
+        <h3>Salvation</h3>
+        <p>We believe in salvation through faith in Jesus Christ alone.</p>
       </div>
-      <div class="belief-card" data-aos="flip-left" data-aos-delay="100">
+      <div class="belief-card">
         <div class="belief-icon">
-          <i class="fas fa-hands-helping"></i>
+          <i class="fas fa-church"></i>
         </div>
         <h3>Community</h3>
-        <p>Loving and serving one another as Christ taught us.</p>
-      </div>
-      <div class="belief-card" data-aos="flip-left" data-aos-delay="200">
-        <div class="belief-icon">
-          <i class="fas fa-book-bible"></i>
-        </div>
-        <h3>Biblical Truth</h3>
-        <p>Scripture is our foundation for life and doctrine.</p>
+        <p>We believe the Church is God's family for spiritual growth.</p>
       </div>
     </div>
   </section>
 
-  <!-- Leadership Team -->
+  <!-- Leadership -->
   <section class="leadership">
-    <h2 data-aos="fade-up">Meet Our Leaders</h2>
+    <h2>Meet Our Pastors</h2>
     <div class="team-grid">
-      <div class="team-card" data-aos="zoom-in">
-        <div class="team-image">
-          <img src="https://source.unsplash.com/random/400x400/?pastor" alt="Pastor John" loading="lazy">
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-        <h3>Pastor John Doe</h3>
-        <p>Senior Pastor</p>
+      <div class="team-card">
+        <img src="https://source.unsplash.com/random/400x400/?pastor" alt="Pastor John">
+        <h3>Pastor John Smith</h3>
+        <p class="role">Senior Pastor</p>
+        <p class="bio">Leading Grace Church since 2010 with a heart for discipleship.</p>
       </div>
-      <!-- Add more team members similarly -->
+      <!-- Add more team members as needed -->
     </div>
   </section>
 
   <!-- History Timeline -->
-  <section class="timeline-section">
-    <h2 data-aos="fade-up">Our Journey</h2>
+  <section class="history">
+    <h2>Our Journey</h2>
     <div class="timeline">
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2005</h3>
-          <p>Founded with just 12 members meeting in a home</p>
-        </div>
+      <div class="timeline-item">
+        <div class="year">2005</div>
+        <div class="event">Founded with 12 members meeting in a home</div>
       </div>
-      <div class="timeline-item" data-aos="fade-left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2010</h3>
-          <p>Purchased our first church building</p>
-        </div>
+      <div class="timeline-item">
+        <div class="year">2010</div>
+        <div class="event">Purchased our first church building</div>
       </div>
       <!-- Add more timeline items -->
     </div>
   </section>
 
   <!-- Footer (Same as other pages) -->
-  <footer>...</footer>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+        <p>Abeka-Lapaz<br>Adjacent Rene School</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-clock"></i> Service Times</h3>
+        <p>Sabbath: 10AM Worship<br>Wednesday: 7PM Bible Study</p>
+      </div>
+      <div class="footer-section">
+        <h3><i class="fas fa-share-alt"></i> Quick Links</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-arrow-right"></i> Homepage</a></li>
+          <li><a href="bible.html"><i class="fas fa-arrow-right"></i> Bible Resources</a></li>
+          <li><a href="event.html"><i class="fas fa-arrow-right"></i> Events</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Abeka SDA Church. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-  <!-- JavaScript Libraries -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
