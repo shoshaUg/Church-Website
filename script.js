@@ -172,3 +172,48 @@ document.addEventListener('DOMContentLoaded', function() {
     'wrapAround': true
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Auto-calculate church age
+  const foundingYear = 1978;
+  document.getElementById('church-age').textContent = foundingYear;
+  
+  // Simple image hover effect
+  const images = document.querySelectorAll('.about-image, .team-card img');
+  images.forEach(img => {
+    img.addEventListener('mouseenter', () => {
+      img.style.transform = 'scale(1.02)';
+      img.style.transition = 'transform 0.3s ease';
+    });
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = 'scale(1)';
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownBtn = document.getElementById('youthDropdownBtn');
+  const dropdownContent = document.getElementById('youthDropdown');
+
+  // Toggle dropdown on click
+  dropdownBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdownContent.classList.toggle('show');
+    
+    // Rotate chevron icon
+    const chevron = this.querySelector('.fa-chevron-down');
+    chevron.classList.toggle('rotate');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function() {
+    dropdownContent.classList.remove('show');
+    const chevron = dropdownBtn.querySelector('.fa-chevron-down');
+    chevron.classList.remove('rotate');
+  });
+
+  // Prevent closing when clicking inside dropdown
+  dropdownContent.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+});
