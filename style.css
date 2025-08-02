@@ -514,8 +514,44 @@ footer {
 .social-btn.tiktok {
   background: #000000;
 }
-
+@media screen and (max-width: 738px) {
 /* Platform Sections */
+
+.platform-section {
+  margin: 4rem 0;
+}
+
+
+.platform-section h2 {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3A5A78;
+}
+}
+/* Embedded Content Containers */
+.embed-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* TikTok Embed Styling */
+.tiktok-embed-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+}
+
+/* Instagram Grid */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
 
 .insta-item {
   position: relative;
@@ -743,7 +779,7 @@ footer {
     padding-right: 0;
     text-align: left;
   }
-}
+
 
 /* Youth Page Specific Styles */
 .youth-hero {
@@ -754,5 +790,4 @@ footer {
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  
+}
