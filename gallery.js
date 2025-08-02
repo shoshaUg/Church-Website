@@ -1,367 +1,220 @@
-<<<<<<< HEAD
+// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize lightGallery
-  lightGallery(document.querySelector('.gallery-container'), {
-    selector: '.gallery-item',
-    download: false,
-    counter: false
-  });
+  // Update Date and Time
+  function updateDateTime() {
+    const now = new Date();
+    
+    // Format date (e.g., "Friday, August 4, 2023")
+    const dateOptions = { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    };
+    const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+    document.getElementById('current-date').innerHTML = 
+      `<i class="far fa-calendar-alt"></i> ${formattedDate}`;
+    
+    // Format time (e.g., "11:45:32 AM")
+    const timeOptions = { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true 
+    };
+    const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+    document.getElementById('current-time').innerHTML = 
+      `<i class="far fa-clock"></i> ${formattedTime}`;
+    
+    // Update year in footer
+    document.getElementById('current-year').textContent = now.getFullYear();
+  }
 
-  // Filter functionality
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  // Update every second
+  setInterval(updateDateTime, 1000);
+  updateDateTime(); // Initial call
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Update active button
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      // Filter items
-      const filter = button.dataset.filter;
-      galleryItems.forEach(item => {
-        if (filter === 'all' || item.dataset.category === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+  // Fetch Daily Bible Verse
+  fetch('https://bible-api.com/john%203:16')
+    .then(response => {
+      if (!response.ok) throw new Error('Network error');
+      return response.json();
+    })
+    .then(data => {
+      document.getElementById('daily-verse').textContent = 
+        `"${data.text}" - ${data.reference}`;
+    })
+    .catch(error => {
+      console.error('Error fetching verse:', error);
+      document.getElementById('daily-verse').textContent = 
+        '"For God so loved the world..." - John 3:16';
     });
+
+  // Mobile menu toggle (if needed)
+  const menuToggle = document.createElement('div');
+  menuToggle.className = 'menu-toggle';
+  menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+  menuToggle.addEventListener('click', () => {
+    document.querySelector('nav ul').classList.toggle('show');
   });
-
-  // Download functionality
-  document.querySelectorAll('.download-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const imageUrl = this.parentElement.parentElement.querySelector('img').src;
-      const fileName = this.dataset.image || 'keren.jpg';
-      
-      // Create temporary link
-      const link = document.createElement('a');
-      link.href = imageUrl;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Feedback
-      this.innerHTML = '<i class="fas fa-check"></i>';
-      setTimeout(() => {
-        this.innerHTML = '<i class="fas fa-download"></i>';
-      }, 2000);
-    });
-  });
-
-  // Load more functionality
-  let currentItems = 5;
-  const totalItems = 20; // Change to your actual total
-  const loadMoreBtn = document.getElementById('loadMore');
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => {
-      // In a real implementation, you would fetch more items from server
-      for (let i = currentItems; i < currentItems + 6; i++) {
-        if (i >= totalItems) {
-          loadMoreBtn.style.display = 'none';
-          break;
-        }
-        // Here you would append new gallery items
-        console.log(`Loading item ${i+1}`);
-      }
-      currentItems += 6;
-    });
+  
+  if (window.innerWidth <= 768) {
+    document.querySelector('nav').appendChild(menuToggle);
   }
 });
+
+// Motivational Quotes (Rotates every 5 minutes)
+const quotes = [
+  {
+    text: "Faith is taking the first step even when you don't see the whole staircase.",
+    author: "Martin Luther King Jr."
+  },
+  {
+    text: "With God, all things are possible.",
+    author: "Matthew 19:26"
+  },
+  {
+    text: "The Lord is my strength and my shield; my heart trusts in Him.",
+    author: "Psalm 28:7"
+  },
+  {
+    text: "Do not be anxious about anything, but pray about everything.",
+    author: "Philippians 4:6"
+  }
+];
+
+function rotateQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  document.getElementById('motivational-quote').textContent = `"${quotes[randomIndex].text}"`;
+  document.getElementById('quote-author').textContent = `— ${quotes[randomIndex].author}`;
+}
+
+// Rotate every 5 minutes (300,000ms)
+setInterval(rotateQuote, 300000);
+rotateQuote(); // Initialize immediately
+
+// Bible Verse Fetching
+function fetchVerse(verse = '') {
+  const searchInput = verse || document.getElementById('verse-search').value.trim();
+  if (!searchInput) return;
+
+  const resultDiv = document.getElementById('verse-result');
+  resultDiv.innerHTML = '<p><i class="fas fa-spinner fa-spin"></i> Loading...</p>';
+
+  fetch(`https://bible-api.com/${encodeURIComponent(searchInput)}`)
+    .then(response => {
+      if (!response.ok) throw new Error('Verse not found');
+      return response.json();
+    })
+    .then(data => {
+      resultDiv.innerHTML = `
+        <h3>${data.reference}</h3>
+        <p>${data.text}</p>
+        <button onclick="copyVerse('${data.reference}', '${data.text}')" class="btn-small">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+      `;
+    })
+    .catch(error => {
+      resultDiv.innerHTML = `<p class="error">Error: ${error.message}. Try "John 3:16"</p>`;
+    });
+}
+
+// Copy Verse to Clipboard
+function copyVerse(reference, text) {
+  navigator.clipboard.writeText(`${reference}: ${text}`)
+    .then(() => alert('Verse copied to clipboard!'))
+    .catch(() => alert('Failed to copy.'));
+}
+
+// Instagram Feed (Alternative if API access isn't available)
 document.addEventListener('DOMContentLoaded', function() {
-  const hero = document.getElementById('eventsHero');
-  const slides = document.querySelectorAll('.hero-slide');
-  const indicators = [];
-  let currentSlide = 0;
-  let slideInterval;
-
-  // Create indicators
-  const indicatorsContainer = document.createElement('div');
-  indicatorsContainer.className = 'slide-indicators';
-  hero.appendChild(indicatorsContainer);
-
-  slides.forEach((slide, index) => {
-    const indicator = document.createElement('div');
-    indicator.className = 'slide-indicator';
-    if (index === 0) indicator.classList.add('active');
-    indicator.addEventListener('click', () => goToSlide(index));
-    indicatorsContainer.appendChild(indicator);
-    indicators.push(indicator);
-  });
-
-  // Slide rotation function
-  function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
-    
-    currentSlide = (currentSlide + 1) % slides.length;
-    
-    slides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
-  }
-
-  // Manual slide navigation
-  function goToSlide(index) {
-    clearInterval(slideInterval);
-    slides[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
-    
-    currentSlide = index;
-    
-    slides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
-    startSlideShow();
-  }
-
-  // Start slideshow
-  function startSlideShow() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 10000); // Change every 10 seconds
-  }
-
-  // Pause on hover
-  hero.addEventListener('mouseenter', () => clearInterval(slideInterval));
-  hero.addEventListener('mouseleave', startSlideShow);
-
-  // Touch support for mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  hero.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    clearInterval(slideInterval);
-  }, {passive: true});
-  
-  hero.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-    startSlideShow();
-  }, {passive: true});
-
-  function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-      nextSlide(); // Swipe left
-    } else if (touchEndX > touchStartX + 50) {
-      // Swipe right
-      slides[currentSlide].classList.remove('active');
-      indicators[currentSlide].classList.remove('active');
-      
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      
-      slides[currentSlide].classList.add('active');
-      indicators[currentSlide].classList.add('active');
+  // Sample Instagram data (replace with actual API calls)
+  const instaPosts = [
+    {
+      image: "https://via.placeholder.com/600x600?text=Church+Event+1",
+      caption: "Sunday service worship moments",
+      link: "#"
+    },
+    {
+      image: "https://via.placeholder.com/600x600?text=Bible+Study",
+      caption: "Wednesday night Bible study",
+      link: "#"
+    },
+    {
+      image: "https://via.placeholder.com/600x600?text=Youth+Group",
+      caption: "Youth group summer camp",
+      link: "#"
+    },
+    {
+      image: "https://via.placeholder.com/600x600?text=Community+Outreach",
+      caption: "Helping our local community",
+      link: "#"
     }
-  }
+  ];
 
-  // Initialize
-  startSlideShow();
+  const instaFeed = document.getElementById('instafeed');
+  
+  instaPosts.forEach(post => {
+    instaFeed.innerHTML += `
+      <a href="${post.image}" class="insta-item" data-lightbox="instagram" data-title="${post.caption}">
+        <img src="${post.image}" alt="${post.caption}">
+        <div class="insta-caption">
+          <p>${post.caption}</p>
+        </div>
+      </a>
+    `;
+  });
+
+  // Initialize Lightbox
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Set current year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // Auto-calculate church age
+  const foundingYear = 1982;
+  document.getElementById('church-age').textContent = foundingYear;
   
-  // Mobile dropdown toggle
-  const youthDropdown = document.querySelector('.dropdown .dropbtn');
-  if (youthDropdown) {
-    youthDropdown.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const content = this.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-      }
+  // Simple image hover effect
+  const images = document.querySelectorAll('.about-image, .team-card img');
+  images.forEach(img => {
+    img.addEventListener('mouseenter', () => {
+      img.style.transform = 'scale(1.02)';
+      img.style.transition = 'transform 0.3s ease';
     });
-  }
-  
-  // Gallery image lightbox effect
-  const galleryImages = document.querySelectorAll('.gallery-grid img');
-  galleryImages.forEach(img => {
-    img.addEventListener('click', function() {
-      // Would link to full gallery in production
-      this.classList.toggle('zoom');
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = 'scale(1)';
     });
   });
 });
 
-// Pagination configuration
-const itemsPerPage = 12; // Number of images per page
-let currentPage = 1;
-let totalItems = 0;
-
-function initializePagination(images) {
-  totalItems = images.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  renderPageNumbers(totalPages);
-  updatePaginationButtons();
-}
-
-function renderPageNumbers(totalPages) {
-  const pageNumbersContainer = document.getElementById('pageNumbers');
-  pageNumbersContainer.innerHTML = '';
-  
-  // Always show first page
-  addPageNumber(1, pageNumbersContainer);
-  
-  // Show ellipsis if needed
-  if (currentPage > 3) {
-    const ellipsis = document.createElement('span');
-    ellipsis.textContent = '...';
-    pageNumbersContainer.appendChild(ellipsis);
-  }
-  
-  // Show current page and neighbors
-  const startPage = Math.max(2, currentPage - 1);
-  const endPage = Math.min(totalPages - 1, currentPage + 1);
-  
-  for (let i = startPage; i <= endPage; i++) {
-    addPageNumber(i, pageNumbersContainer);
-  }
-  
-  // Show ellipsis if needed
-  if (currentPage < totalPages - 2) {
-    const ellipsis = document.createElement('span');
-    ellipsis.textContent = '...';
-    pageNumbersContainer.appendChild(ellipsis);
-  }
-  
-  // Always show last page if different from first
-  if (totalPages > 1) {
-    addPageNumber(totalPages, pageNumbersContainer);
-  }
-}
-
-function addPageNumber(pageNumber, container) {
-  const pageElement = document.createElement('span');
-  pageElement.classList.add('page-number');
-  if (pageNumber === currentPage) {
-    pageElement.classList.add('active');
-  }
-  pageElement.textContent = pageNumber;
-  pageElement.addEventListener('click', () => goToPage(pageNumber));
-  container.appendChild(pageElement);
-}
-
-function goToPage(page) {
-  currentPage = page;
-  displayGalleryItems();
-  updatePaginationButtons();
-  renderPageNumbers(Math.ceil(totalItems / itemsPerPage));
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function changePage(direction) {
-  goToPage(currentPage + direction);
-}
-
-function updatePaginationButtons() {
-  const prevButton = document.querySelector('.page-btn:first-of-type');
-  const nextButton = document.querySelector('.page-btn:last-of-type');
-  
-  prevButton.disabled = currentPage === 1;
-  nextButton.disabled = currentPage === Math.ceil(totalItems / itemsPerPage);
-}
-
-function displayGalleryItems() {
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  
-  galleryItems.forEach((item, index) => {
-    item.style.display = (index >= startIndex && index < endIndex) ? 'block' : 'none';
-  });
-}
-
-// Initialize when your gallery loads
 document.addEventListener('DOMContentLoaded', function() {
-  // After loading your images:
-  const allImages = document.querySelectorAll('.gallery-item');
-  totalItems = allImages.length;
-  initializePagination(allImages);
-  displayGalleryItems();
-});
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize lightGallery
-  lightGallery(document.querySelector('.gallery-container'), {
-    selector: '.gallery-item',
-    download: false,
-    counter: false
+  const dropdownBtn = document.getElementById('youthDropdownBtn');
+  const dropdownContent = document.getElementById('youthDropdown');
+
+  // Toggle dropdown on click
+  dropdownBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdownContent.classList.toggle('show');
+    
+    // Rotate chevron icon
+    const chevron = this.querySelector('.fa-chevron-down');
+    chevron.classList.toggle('rotate');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function() {
+    dropdownContent.classList.remove('show');
+    const chevron = dropdownBtn.querySelector('.fa-chevron-down');
+    chevron.classList.remove('rotate');
+  });
+
+  // Prevent closing when clicking inside dropdown
+  dropdownContent.addEventListener('click', function(e) {
+    e.stopPropagation();
   });
 });
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize lightGallery
-  lightGallery(document.querySelector('.gallery-container'), {
-    selector: '.gallery-item',
-    download: false,
-    counter: false
-  });
 
-  // Filter functionality
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Update active button
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      // Filter items
-      const filter = button.dataset.filter;
-      galleryItems.forEach(item => {
-        if (filter === 'all' || item.dataset.category === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // Download functionality
-  document.querySelectorAll('.download-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const imageUrl = this.parentElement.parentElement.querySelector('img').src;
-      const fileName = this.dataset.image || 'grace-church-image.jpg';
-      
-      // Create temporary link
-      const link = document.createElement('a');
-      link.href = imageUrl;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Feedback
-      this.innerHTML = '<i class="fas fa-check"></i>';
-      setTimeout(() => {
-        this.innerHTML = '<i class="fas fa-download"></i>';
-      }, 2000);
-    });
-  });
-
-  // Load more functionality
-  let currentItems = 12;
-  const totalItems = 24; // Change to your actual total
-  const loadMoreBtn = document.getElementById('loadMore');
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => {
-      // In a real implementation, you would fetch more items from server
-      for (let i = currentItems; i < currentItems + 6; i++) {
-        if (i >= totalItems) {
-          loadMoreBtn.style.display = 'none';
-          break;
-        }
-        // Here you would append new gallery items
-        console.log(`Loading item ${i+1}`);
-      }
-      currentItems += 6;
-    });
-  }
-
-});
