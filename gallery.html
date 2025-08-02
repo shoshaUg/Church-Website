@@ -6,6 +6,7 @@
     <title>Photo Gallery | Abeka SDA Youth Ministry</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="ay.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -82,45 +83,250 @@
     </section>
 
     <!-- Gallery Grid -->
-    <section class="gallery-container">
-      <div class="gallery-item" data-category="worship">
-        <img
-          src="royals/IMG-20250429-WA0288.jpg"
-          alt="Worship service"
-        />
-        <div class="gallery-overlay">
-          <button class="download-btn" data-image="worship1.jpg">
-            <i class="fas fa-download"></i>
-          </button>
-          <button class="view-btn">
-            <i class="fas fa-expand"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Add more gallery items (11 more sample items) -->
-      <div class="gallery-item" data-category="events">
-        <img
-          src="https://source.unsplash.com/random/600x400/?church,event"
-          alt="Church event"
-        />
-        <div class="gallery-overlay">
-          <button class="download-btn" data-image="event1.jpg">
-            <i class="fas fa-download"></i>
-          </button>
-          <button class="view-btn">
-            <i class="fas fa-expand"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Continue with 10 more images in different categories -->
-    </section>
-
-    <!-- Load More Button -->
-    <div class="load-more">
-      <button id="loadMore">Load More Photos</button>
+  <section class="gallery-container">
+  <!-- Row 1 -->
+  <div class="gallery-item" data-category="worship">
+    <img src="royals/worship.jpg" alt="Worship service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/worship.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
     </div>
+  </div>
+  
+  <div class="gallery-item" data-category="events">
+    <img src="royals/camp.jpg" alt="Youth Camp-Out 2025">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/camp.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="gallery-item" data-category="worship">
+    <img src="royals/worship2.png" alt="Divine Service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/worship2.png">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="gallery-item" data-category="community">
+    <img src="royals/camp2.jpg" alt="Community event">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/camp2.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="gallery-item" data-category="events">
+    <img src="royals/event4.jpg" alt="Church picnic">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/event4.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Row 2 (continue with remaining images) -->
+  <div class="gallery-item" data-category="worship">
+    <img src="worship.jpg" alt="Sabbath service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="worship.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+   <div class="gallery-item" data-category="worship">
+    <img src="royals/service.png" alt="Sabbath Afternoon Service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/philo.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+    <div class="gallery-item" data-category="worship">
+    <img src="royals/ad.png" alt="Sabbath service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/ad.png">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+   <div class="gallery-item" data-category="event">
+    <img src="royals/rb.jpg" alt="Beach Games">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/rb.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+   <div class="gallery-item" data-category="worship">
+    <img src="royals/yellow.jpg" alt="Royal Guards& Royal Princesses">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/yellow.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</section>
+      <!-- Gallery Grid -->
+  <section class="gallery-container">
+  <!-- Row 3 -->
+  <div class="gallery-item" data-category="worship">
+    <img src="royals/add.png" alt="Adventurer  service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/add.png">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="gallery-item" data-category="community">
+    <img src="royals/ay.jpg" alt="Evangelism">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/camp.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="gallery-item" data-category="worship">
+    <img src="royals/church.jpg" alt="Divine Service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/church.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="gallery-item" data-category="event">
+    <img src="royals/event2.jpg" alt="Senior Youth Day-Out">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/event2.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="gallery-item" data-category="events">
+    <img src="royals/event3.jpg" alt="Pathfinder picnic">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/event3.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+      <div class="gallery-item" data-category="worship">
+    <img src="royals/event1.jpg" alt="Sabbath service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/event1.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+   <div class="gallery-item" data-category="worship">
+    <img src="royals/moda.jpg" alt="Sabbath Afternoon Service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="royals/moda.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+    <div class="gallery-item" data-category="worship">
+    <img src="worship.jpg" alt="Sabbath service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="worship.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+   <div class="gallery-item" data-category="worship">
+    <img src="keren.jpg" alt="Sabbath Afternoon Service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="keren.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+   <div class="gallery-item" data-category="worship">
+    <img src="keren.jpg" alt="Sabbath Afternoon Service">
+    <div class="gallery-overlay">
+      <button class="download-btn" data-image="keren.jpg">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="view-btn">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</section>
+<div class="pagination">
+  <button class="page-btn" onclick="changePage(-1)">&laquo; Prev</button>
+  <div class="page-numbers" id="pageNumbers">
+    <!-- Page numbers will be inserted here by JavaScript -->
+  </div>
+  <button class="page-btn" onclick="changePage(1)">Next &raquo;</button>
+</div>
 
     <!-- Footer -->
     <footer>
@@ -163,5 +369,7 @@
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
     <script src="gallery.js"></script>
+    <script src="ay.js"></script>
   </body>
 </html>
+
