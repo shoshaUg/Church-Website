@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Church Events - Abeka SDA Church</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Lightbox CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
@@ -62,6 +63,113 @@
       </li>
     </ul>
   </nav>
+  <!-- Hero Section with Slideshow -->
+<section class="events-hero" id="eventsHero">
+  <div class="hero-slide active" style="background-image: url('royals/group.jpg')">
+    <div class="hero-content">
+      <h1>Upcoming Events</h1>
+      <p>Join us for worship, fellowship, and spiritual growth</p>
+    </div>
+  </div>
+  <div class="hero-slide" style="background-image: url('worship.jpg')">
+    <div class="hero-content">
+      <h1>Community Gatherings</h1>
+      <p>Building connections through faith and service</p>
+    </div>
+  </div>
+  <div class="hero-slide" style="background-image: url('royals/moda.jpg')">
+    <div class="hero-content">
+      <h1>Youth Programs</h1>
+      <p>Engaging the next generation in Christ</p>
+    </div>
+  </div>
+</section>
+
+<div class="events-container">
+  <!-- First Event -->
+  <div class="event-card">
+    <img src="worship.jpg" alt="Divine Service" class="event-image" data-filter="worship">
+    <div class="event-details">
+      <div class="event-date">
+        <i class="far fa-calendar-alt"></i>
+        <span>Every Saturday</span>
+      </div>
+      <h3 class="event-title">Divine Service</h3>
+      <p class="event-description">Join us for our weekly worship service with special guest speaker Pastor Michael.</p>
+      <div class="event-meta">
+        <div class="event-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Main Sanctuary<br>
+          Abeka SDA Church</strong>
+        </div>
+        <div class="event-time">
+          <i class="far fa-clock"></i>
+          <strong>10:30 AM</strong>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="ay.html" class="btn">Details</a>
+        <a href="#" class="btn btn-outline">Add to Calendar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Event -->
+  <div class="event-card">
+    <img src="prayer.jpg" alt="Wednesday Prayers" class="event-image" >
+    <div class="event-details">
+      <div class="event-date">
+        <i class="far fa-calendar-alt"></i>
+        <span>Every Wednesday</span>
+      </div>
+      <h3 class="event-title">Midweek Prayer Service</h3>
+      <p class="event-description">Deep dive into Scripture with our interactive Bible study sessions.</p>
+      <div class="event-meta">
+        <div class="event-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Fellowship Hall<br>
+          Abeka SDA Church</strong>
+        </div>
+        <div class="event-time">
+          <i class="far fa-clock"></i>
+          <strong>6:00 PM</strong>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="ay.html" class="btn">Details</a>
+        <a href="#" class="btn btn-outline">Add to Calendar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third Event -->
+  <div class="event-card">
+    <img src="royals/camp.jpg" alt="Youth Fellowship" class="event-image" >
+    <div class="event-details">
+      <div class="event-date">
+        <i class="far fa-calendar-alt"></i>
+        <span>First Friday Monthly</span>
+      </div>
+      <h3 class="event-title">Youth Night Out</h3>
+      <p class="event-description">An evening of worship, games and fellowship for ages 13-25.</p>
+      <div class="event-meta">
+        <div class="event-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Church Auditorium<br>
+          Abeka SDA Church</strong>
+        </div>
+        <div class="event-time">
+          <i class="far fa-clock"></i>
+          <strong>7:00 PM</strong>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="ay.html" class="btn">Details</a>
+        <a href="#" class="btn btn-outline">Add to Calendar</a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Social Media Gallery -->
   <main class="social-gallery">
@@ -161,5 +269,6 @@
 
   <!-- Custom JS -->
   <script src="script.js"></script>
+  <script src="gallery.js"></script>
 </body>
 </html>
